@@ -1,0 +1,23 @@
+{
+  "name": "myrepo",
+  "version": "1.0.0",
+  "description": "cse 340 project",
+  "homepage": "https://github.com/cyrille0880/myRepo#readme",
+  "bugs": {
+    "url": "https://github.com/cyrille0880/myRepo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrille0880/myRepo.git"
+  },
+  "license": "ISC",
+  "author": "Cyrille",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "Express": "^3.0.1"
+  }
+}
