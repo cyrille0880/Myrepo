@@ -14,3 +14,19 @@ VALUES
 ('BrightFuture Builders', 'A nonprofit focused on improving community infrastructure through sustainable construction projects.', 'info@brightfuturebuilders.org', 'brightfuture-logo.png'),
 ('GreenHarvest Growers', 'An urban farming collective promoting food sustainability and education in local neighborhoods.', 'contact@greenharvest.org', 'greenharvest-logo.png'),
 ('UnityServe Volunteers', 'A volunteer coordination group supporting local charities and service initiatives.', 'hello@unityserve.org', 'unityserve-logo.png');
+
+
+
+
+CREATE TABLE categories(
+category_id SERIAL  PRIMARY KEY,
+category_name VARCHAR(75) NOT NULL,
+service_project_name  VARCHAR(75)  NOT NULL 
+);
+
+INSERT INTO categories (category_id,category_name,service_project_name)
+VALUES
+(1, 'environmental', 'park cleanup'),
+(2, ' educational ', 'community tutoring'),
+(3 , 'community service', 'food drive '),
+(4, 'health and wellness', 'park cleanup' );
