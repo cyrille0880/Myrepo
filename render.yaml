@@ -1,0 +1,24 @@
+# Minimal Render service definition
+# Replace values or manage secrets in the Render dashboard (recommended).
+
+services:
+  - type: web
+    name: myrepo-web
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    # Optional: health check path
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_URL
+        # DO NOT commit a real secret here; replace the placeholder or set in Render dashboard
+        value: "REPLACE_WITH_DATABASE_URL"
+      - key: ENABLE_SQL_LOGGING
+        value: "false"
+
+# If you use a managed Postgres on Render, add a "databases" section instead and reference it here.
+# See Render docs for advanced options (instances, region, autoDeploy, etc.).
