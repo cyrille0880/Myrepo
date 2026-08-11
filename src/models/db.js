@@ -12,7 +12,8 @@ import { Pool } from 'pg';
  * The connection string format is:
  * postgresql://username:password@host:port/database
  */
-const sslOptions = process.env.NODE_ENV === 'production'
+const useSsl = Boolean(process.env.DB_URL && !process.env.DB_URL.includes('localhost') && !process.env.DB_URL.includes('127.0.0.1'));
+const sslOptions = useSsl
     ? { rejectUnauthorized: false }
     : false;
 
@@ -24,10 +25,12 @@ const pool = new Pool({
 /**
  * Common SSL Issue:
  *
- * On Render and some managed Postgres services, the certificate may be self-signed.
- * In production we disable certificate validation here so the connection succeeds.
- * For strict security, replace this with a proper CA bundle and set rejectUnauthorized
- * to true.
+ * Many hosted Postgres providers require SSL, including Render Postgres.
+ * When the database host is not localhost, we enable SSL and disable strict
+ * certificate validation so self-signed / provider-managed certs do not fail.
+ *
+ * If you want stricter validation, replace this with a proper CA bundle and
+ * set rejectUnauthorized to true.
  */
 
 /**
