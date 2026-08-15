@@ -30,3 +30,20 @@ VALUES
 (2, ' educational ', 'community tutoring'),
 (3 , 'community service', 'food drive '),
 (4, 'health and wellness', 'park cleanup' );
+
+
+
+CREATE TABLE projects(
+service_project_name VARCHAR(50) PRIMARY KEY,
+category_id INT NOT NULL,
+category_name VARCHAR(75)  NOT NULL 
+);
+
+
+INSERT INTO projects( service_project_name, category_id, category_name)
+VALUES( 'park cleanup', 1 , 'environmental'),
+('food drive ', 3, 'community service ');
+('community tutoring', 2, ' educational');
+
+
+
